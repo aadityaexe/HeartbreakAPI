@@ -1,20 +1,27 @@
 # 💔 HeartbreakAPI
 
-An expressive, dramatic mock API built with Express.js — made for those moments when you just *had* to say something... but she never felt the same. Designed with heartbreak in mind, this API always replies with a cold, coded rejection.
+An Express.js API that mirrors real-life heartbreak.  
+Make a confession, and get rejected — just like she never saw you that way.
 
 ---
 
-## 🧠 What is this?
+## 📌 Overview
 
-**HeartbreakAPI** is a playful, emotional, and slightly painful Node.js project. You "confess" your feelings to an endpoint, and it responds the way reality often does — not how you hoped.
+This minimalist API accepts a POST request for confessions.  
+But beware — if your message contains the word “like”, the server will shut you down.
 
-Use it to test API routes, build emotional resilience, or add humor to your portfolio.
+---
+
+## ⚙️ Tech Stack
+
+- Node.js
+- Express.js
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone this heartache
+### 1. Clone the repo
 
 ```bash
 git clone https://github.com/your-username/HeartbreakAPI.git
@@ -24,61 +31,65 @@ bash
 Copy
 Edit
 npm install
-3. Run the emotional server
+3. Start the server
 bash
 Copy
 Edit
-npm start
-Server will start on:
+node server.js
+The server runs on:
 
 arduino
 Copy
 Edit
 http://localhost:3000
-📬 API Endpoint
-POST /confess
-Send your love letter (or any message). It won’t end well. Trust me.
+💔 API Endpoint
+POST /confess-your-feelings
+Send a confession in JSON format.
 
-Example Request:
+✅ Request Body
 json
 Copy
 Edit
 {
   "from": "You",
   "to": "Her",
-  "message": "I like you."
+  "message": "I think I like you..."
 }
-Possible Response:
+🔁 Possible Responses
+Condition	Response
+Message includes "like"	404 Not Found + { "error": "Endpoint doesn't exist. She never saw you that way." }
+Message does NOT include it	200 OK + { "success": true, "response": "Confession received, but... it's complicated." }
+
+🧪 Example with curl
+bash
+Copy
+Edit
+curl -X POST http://localhost:3000/confess-your-feelings \
+-H "Content-Type: application/json" \
+-d '{"from":"Aditya","to":"Priya","message":"I think I like you..."}'
+📬 Try it on Postman
+Method: POST
+
+URL: http://localhost:3000/confess-your-feelings
+
+Headers:
+
+Content-Type: application/json
+
+Body:
+
 json
 Copy
 Edit
 {
-  "error": "Endpoint doesn't exist. She never saw you that way."
+  "from": "Aditya",
+  "to": "Priya",
+  "message": "Hey... just wanted to say I think I like you."
 }
-💔 Brutal? Yes.
-Funny? Also yes.
-Therapeutic? Maybe.
-
-🛠 Built With
-Node.js
-
-Express.js
-
-A little too much emotional baggage
-
 📄 License
-MIT — free to fork, remix, and cry.
+MIT — Free to use, clone, modify, and cry over.
 
-✍️ Author
-Made by someone who knows rejection and decided to turn it into code.
+👤 Author
+Aditya Kumar
 
-"Some projects teach you to code. This one teaches you to cope."
-– HeartbreakAPI
-
-yaml
-Copy
-Edit
-
----
-
-Would you like me to generate this as a downloadable `README.md` file as well?
+"Your confession deserved better. But the server didn’t flinch."
